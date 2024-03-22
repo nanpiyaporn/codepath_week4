@@ -24,6 +24,7 @@ const APIForm = ({inputs, handleChange, onSubmit}) => {
           placeholder="Input this attribute..."
           onChange={handleChange}
           className="textbox"
+          
         />
         <br></br>
         <br></br>
@@ -34,7 +35,7 @@ const APIForm = ({inputs, handleChange, onSubmit}) => {
 <button type="submit" className="button" onClick={onSubmit}>
   Take that Pic! 🎞
 </button>
-    </div>
+</div>
   );
 };
 

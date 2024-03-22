@@ -1,11 +1,15 @@
-import { useState } from 'react'
-import APIForm from './Components/APIform';
-import './App.css'
+import { useState } from 'react';
+import APIForm from './components/APIForm';
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
   
-  const ACCESS_KEY = import.meta.env.VITE_APP_ACCESS_KEY;
+  // Define submitForm function
+  const submitForm = () => {
+    // Implement the functionality you want when the form is submitted
+    console.log("Form submitted!");
+  };
 
   const [inputs, setInputs] = useState({
     url: "",
@@ -17,23 +21,22 @@ function App() {
   });
 
   return (
-    <>
-      <div>
+    <div className="whole-page">
+      <h1>Build Your Own Screenshot! 📸</h1>
       
-       
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        
-      </div>
-      <p className="read-the-docs">
-       
-       
-      </p>
-      </div>
-    </>
-  )
+      <APIForm
+        inputs={inputs}
+        handleChange={(e) =>
+          setInputs((prevState) => ({
+            ...prevState,
+            [e.target.name]: e.target.value.trim(),
+          }))
+        }
+        onSubmit={submitForm} // Pass the submitForm function as onSubmit prop
+      />
+      <br />
+    </div>
+  );
 }
 
-export default App
+export default App;
