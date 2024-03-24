@@ -6,6 +6,7 @@ import './App.css';
 function App() {
   const [count, setCount] = useState(0);
   const [currentImage, setCurrentImage] = useState(null);
+  const [prevImages, setPrevImages] = useState([]);
   const [inputs, setInputs] = useState({
     url: "",
     format: "",
@@ -67,6 +68,7 @@ function App() {
       alert("Oops! Something went wrong with that query, let's try again!");
     } else {
       setCurrentImage(json.url);
+      setPrevImages((images) => [...images, json.url]);
       reset();
     }
   };
@@ -110,7 +112,7 @@ function App() {
 
 export default App;
 
-
+// my not work version!!!!
 // import { useState } from 'react';
 // import APIForm from './components/APIForm';
 // import './App.css';
