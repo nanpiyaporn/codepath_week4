@@ -63,14 +63,22 @@ function App() {
   };
 
   const callAPI = async (query) => {
-    const response = await fetch(query);
-    const json = await response.json();
-    if (json.url == null) {
-      alert("Oops! Something went wrong with that query, let's try again!");
-    } else {
-      setCurrentImage(json.url);
-      setPrevImages((images) => [...images, json.url]);
-      reset();
+    try {
+      const response = await fetch(query);
+      if (response.status === 401) {
+        throw new Error("Unauthorized: Please check your access credentials.");
+      }
+      const json = await response.json();
+      if (json.url == null) {
+        alert("Oops! Something went wrong with that query, let's try again!");
+      } else {
+        setCurrentImage(json.url);
+        setPrevImages((images) => [...images, json.url]);
+        reset();
+      }
+    } catch (error) {
+      console.error(error);
+      alert("Failed to fetch data. Please try again later.");
     }
   };
 
