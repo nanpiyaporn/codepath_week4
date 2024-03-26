@@ -36,9 +36,6 @@ const APIForm = ({inputs, handleChange, onSubmit}) => {
 <button type="submit" className="button" onClick={onSubmit}>
   Take that Pic! 🎞
 </button>
-
-
-<br></br>
 </div>
   );
 };
