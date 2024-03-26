@@ -26,7 +26,7 @@ const APIForm = ({inputs, handleChange, onSubmit}) => {
           className="textbox"
           
         />
-        <br></br>
+       
         <br></br>
         <p> {inputsInfo[index]}</p>
       </li>

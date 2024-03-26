@@ -4,7 +4,7 @@ import './App.css';
 import Gallery from './components/Gallery';
 
 function App() {
-  const [count, setCount] = useState(0);
+  
   const [currentImage, setCurrentImage] = useState(null);
   const [prevImages, setPrevImages] = useState([]);
   const [inputs, setInputs] = useState({
@@ -16,7 +16,7 @@ function App() {
     height: "",
   });
 
-  const ACCESS_KEY = import.meta.env.VITE_APP_ACCESS_KEY;
+  const ACCESS_KEY = import.meta.env.VITE_APP_API_KEY;
   console.log(ACCESS_KEY);
 
   // Define submitForm function
@@ -77,7 +77,7 @@ function App() {
         reset();
       }
     } catch (error) {
-      console.error(error);
+      console.log(error);
       alert("Failed to fetch data. Please try again later.");
     }
   };
